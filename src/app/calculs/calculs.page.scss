@@ -1,0 +1,165 @@
+/* 
+  Calculs Page Styles - Compact & Minimalist Dark
+  Optimized for a small, gadget-like calculator feel
+*/
+
+ion-content {
+  --background: #000000;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px;
+}
+
+// Compact Gadget-style Card
+ion-card {
+  width: 100%;
+  max-width: 340px; // Very compact width
+  background: #121212; 
+  border: 1px solid #222222;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  margin: auto;
+  overflow: hidden;
+}
+
+ion-card-header {
+  text-align: center;
+  padding: 25px 20px 10px;
+}
+
+ion-card-title ion-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+ion-card-subtitle ion-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #555555;
+  letter-spacing: 0.5px;
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --border-color: transparent;
+  margin-bottom: 12px;
+}
+
+// Sleek Compact Inputs
+ion-item:nth-child(1),
+ion-item:nth-child(2) {
+  ion-input {
+    --padding-start: 12px !important;
+    font-size: 0.95rem;
+    color: #ffffff;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333333;
+    height: 45px;
+    --placeholder-color: #444444;
+    transition: all 0.2s ease;
+    
+    &.has-focus {
+      border-color: #555555;
+      background: #222222;
+    }
+  }
+}
+
+// Modern Symbol Button Grid - Fixed for Accessibility
+ion-item:nth-child(3) {
+  margin: 15px 0 25px;
+  
+  &::part(native) {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+  }
+
+  ion-button {
+    --background: #ffffff; // White buttons for maximum visibility
+    --color: #000000; 
+    --border-radius: 14px;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    margin: 0;
+    width: 22%; // 4 buttons with gaps
+    height: 60px; // Larger tap target
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:active {
+      transform: scale(0.9);
+      --background: #888888;
+      --color: #ffffff;
+    }
+    
+    // Smooth outline for definition
+    &::part(native) {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+  }
+}
+
+// Minimal Display for Result
+ion-item:nth-child(4) {
+  margin-top: 10px;
+  
+  &::part(native) {
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #222222;
+  }
+
+  ion-label {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0;
+    
+    &::before {
+      content: 'RESULT';
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #666666;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+
+// Ensure 4 columns on all screens
+@media (max-width: 500px) {
+  ion-item:nth-child(3) {
+    &::part(native) {
+       grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
