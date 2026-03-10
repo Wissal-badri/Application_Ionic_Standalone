@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="back-btn" (click)="goHome()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="game-controller" class="title-icon"></ion-icon>
+      Jeu du Nombre Secret
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="game-container">
+
+    <!-- Hero Banner -->
+    <div class="game-hero">
+      <div class="hero-icon">
+        <ion-icon name="game-controller"></ion-icon>
+      </div>
+      <h1 class="game-title">Devinez le Nombre !</h1>
+      <p class="game-subtitle">Un nombre secret entre 1 et 100 vous attend</p>
+    </div>
+
+    <!-- Essais restants -->
+    <div class="attempts-bar">
+      <span class="attempts-label">Essais restants :</span>
+      <div class="attempts-dots">
+        <span *ngFor="let i of [1,2,3,4,5]" class="dot" [class.active]="i <= essaisRestants"
+          [class.empty]="i > essaisRestants">
+        </span>
+      </div>
+      <span class="attempts-count">{{ essaisRestants }} / 5</span>
+    </div>
+
+    <!-- Zone de saisie -->
+    <div class="input-card" *ngIf="!jeuTermine">
+      <p class="input-hint">Saisissez votre nombre :</p>
+      <div class="input-row">
+        <input class="number-input" type="text" inputmode="numeric" pattern="[0-9]*" [(ngModel)]="nombreSaisi"
+          placeholder="0 – 100" autocomplete="off" (keyup.enter)="verifier()" />
+        <button class="btn-verify" (click)="verifier()" [disabled]="jeuTermine">
+          <ion-icon name="send"></ion-icon>
+          <span>Vérifier</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Message de résultat -->
+    <div class="message-card" *ngIf="message" [ngClass]="messageType">
+      <ion-icon class="msg-icon" [name]="messageType === 'superieur' ? 'trending-down'
+              : messageType === 'inferieur' ? 'trending-up'
+              : messageType === 'gagne'     ? 'trophy'
+              : 'close-circle'">
+      </ion-icon>
+      <p class="msg-text">{{ message }}</p>
+    </div>
+
+    <!-- Bouton Rejouer -->
+    <div class="rejouer-zone" *ngIf="jeuTermine">
+      <button class="btn-rejouer" (click)="rejouer()">
+        <ion-icon name="refresh"></ion-icon>
+        <span>Rejouer</span>
+      </button>
+    </div>
+
+    <!-- Historique des tentatives -->
+    <div class="history-card" *ngIf="historique.length > 0">
+      <h3 class="history-title">
+        <ion-icon name="list"></ion-icon>
+        Historique des tentatives
+      </h3>
+      <div class="history-list">
+        <div class="history-item" *ngFor="let item of historique; let i = index" [ngClass]="item.type">
+          <span class="history-num">#{{ i + 1 }}</span>
+          <span class="history-val">{{ item.nombre }}</span>
+          <span class="history-res">
+            <ion-icon [name]="item.type === 'superieur' ? 'arrow-down'
+                    : item.type === 'inferieur' ? 'arrow-up'
+                    : 'checkmark-circle'">
+            </ion-icon>
+            {{ item.resultat }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
