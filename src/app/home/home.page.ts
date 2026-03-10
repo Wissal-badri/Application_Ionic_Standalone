@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,8 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel } from
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private router: Router) {}
+  goToCalculsPage() {
+    this.router.navigate(['/calculs']);
+  }
 }

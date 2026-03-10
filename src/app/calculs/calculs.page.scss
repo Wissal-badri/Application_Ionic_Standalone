@@ -1,147 +1,189 @@
-/* 
-  Calculs Page Styles - Compact & Wide "Gadget" Design
-  Optimized for a horizontal, small calculator feel
-*/
+// ─── Palette : Midnight Blue + Cyan discret ──────────────────────────────────
+// Fond principal : #080e1a  (midnight profond)
+// Surface cards  : #0e1828  (bleu nuit)
+// Bordures       : #1e3d5c  (bleu ardoise visible)
+// Texte blanc    : #e8edf5
+// Texte discret  : #4a607a
+// Accent cyan    : #06b6d4  (utilisé avec parcimonie — icônes, underline)
 
+// ─── Page Background ─────────────────────────────────────────────────────────
 ion-content {
-  --background: #000000;
+  --background: #080e1a;
 }
 
+ion-header ion-toolbar {
+  --background: #080e1a;
+  --border-color: #1e3d5c;
+}
+
+ion-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3a5270;
+}
+
+.back-btn {
+  --color: #2e4460;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  &:hover { --color: #e8edf5; }
+}
+
+// ─── Main Container ───────────────────────────────────────────────────────────
 #container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 48px;
+  gap: 14px;
+}
+
+// ─── Display Screen ───────────────────────────────────────────────────────────
+.display-screen {
+  width: 100%;
+  max-width: 420px;
+  background: #0e1828;
+  border: 1px solid #1e3d5c;
+  border-radius: 16px;
+  padding: 22px 22px 18px;
+  text-align: right;
+
+  // Thin cyan accent line at top
+  border-top: 2px solid #06b6d4;
+
+  .display-expression {
+    font-size: 0.72rem;
+    color: #2c4158;
+    letter-spacing: 1px;
+    min-height: 16px;
+    margin-bottom: 12px;
+  }
+
+  .display-result {
+    font-size: 2.8rem;
+    font-weight: 200;
+    color: #e8edf5;
+    letter-spacing: -1px;
+    line-height: 1;
+    word-break: break-all;
+  }
+}
+
+// ─── Inputs Row ───────────────────────────────────────────────────────────────
+.inputs-row {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  gap: 10px;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #0e1828;
+  border: 1px solid #1e3d5c;
+  border-radius: 12px;
+  padding: 0 14px;
+  height: 54px;
+  transition: border-color 0.2s ease;
+
+  &:focus-within {
+    border-color: #06b6d4;          // cyan uniquement au focus
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.08);
+  }
+
+  .input-icon {
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: #1e3348;
+    margin-right: 10px;
+    letter-spacing: 1px;
+  }
+
+  ion-input {
+    --background: transparent;
+    --color: #d0dae8;
+    --placeholder-color: #1e3348;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+}
+
+// ─── Operation Buttons ─────────────────────────────────────────────────────
+.ops-grid {
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.op-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 70px;
+  border: 1px solid #1e3d5c;
+  background: #0e1828;
+  border-radius: 14px;
+  color: #d0dae8;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+
+  &:active {
+    transform: scale(0.96);
+    border-color: #06b6d4;          // flash cyan au tap
+    background: #0f1f33;
+  }
+
+  .op-icon {
+    font-size: 1.4rem;
+    font-weight: 200;
+    line-height: 1;
+    color: #c8d6e8;
+  }
+
+  .op-label {
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2e4460;
+  }
+}
+
+// ─── Clear Button ─────────────────────────────────────────────────────────────
+.clear-btn {
+  width: 100%;
+  max-width: 420px;
+  height: 46px;
+  border: 1px solid #1e3d5c;
+  border-radius: 12px;
+  background: transparent;
+  color: #2e4460;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
-  padding: 10px;
-}
+  gap: 8px;
+  transition: all 0.2s ease;
 
-// Compact but WIDER Card
-ion-card {
-  width: 100%;
-  max-width: 450px; // Increased width from 340px
-  background: #121212; 
-  border: 1px solid #222222;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-  border-radius: 20px;
-  margin: auto;
-  overflow: hidden;
-}
+  ion-icon { font-size: 0.9rem; }
 
-ion-card-header {
-  text-align: center;
-  padding: 15px 20px 5px; // Reduced vertical padding
-}
-
-ion-card-title ion-label {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-ion-card-subtitle ion-label {
-  font-size: 0.6rem;
-  color: #444444;
-}
-
-ion-card-content {
-  padding: 15px 25px 25px; // Reduced top, increased side padding
-}
-
-ion-list {
-  background: transparent;
-}
-
-ion-item {
-  --background: transparent;
-  --padding-start: 0;
-  --inner-padding-end: 0;
-  --border-color: transparent;
-  margin-bottom: 10px; // Tighter vertical spacing
-}
-
-// Side-by-side Inputs to make it shorter
-.inputs-container {
-  &::part(native) {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-  }
-  
-  ion-input {
-    flex: 1;
-    --padding-start: 12px !important;
-    font-size: 0.95rem;
-    color: #ffffff;
-    background: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid #333333;
-    height: 45px;
-    --placeholder-color: #444444;
-  }
-}
-
-// Operations row
-.ops-container {
-  &::part(native) {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  ion-button {
-    flex: 1;
-    --background: #ffffff;
-    --color: #000000;
-    --border-radius: 12px;
-    height: 50px;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 0;
-  }
-}
-
-// Clear button - keep it accessible but compact
-.clear-container {
-  margin-top: 5px;
-  &::part(native) { padding: 0; }
-  
-  .clear-btn {
-    --background: #ff4757;
-    --border-radius: 12px;
-    width: 100%;
-    height: 40px; // Shorter height
-    font-size: 0.8rem;
-    font-weight: 800;
-  }
-}
-
-// Result Panel - Horizontal layout
-.result-container {
-  margin-top: 10px;
-  &::part(native) {
-    padding: 15px 20px;
-    background: #1a1a1a;
-    border-radius: 15px;
-    border: 1px solid #222222;
-    display: flex;
-    justify-content: space-between; // Label on left, result on right
-    align-items: center;
-  }
-
-  ion-label {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: #ffffff;
-    
-    &::before {
-      content: 'TOTAL';
-      display: inline-block;
-      font-size: 0.7rem;
-      color: #666666;
-      margin-right: 15px;
-      letter-spacing: 2px;
-    }
+  &:active {
+    border-color: #172236;
+    color: #4a607a;
+    background: #0e1828;
   }
 }

@@ -1,45 +1,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>calculs</ion-title>
+    <ion-buttons slot="start">
+      <ion-button class="back-btn" (click)="goHome()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Calculatrice</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">calculs</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <div id="container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>
-          <ion-label>Calculs Operatiosn</ion-label>
-        </ion-card-title>
-        <ion-card-subtitle>
-          <ion-label>Calculs SDDI4</ion-label>
-        </ion-card-subtitle>
-        <ion-card-content>
-          <ion-list>
-            <ion-item class="inputs-container">
-              <ion-input type="number" placeholder="NB 1" [(ngModel)]="num1"></ion-input>
-              <ion-input type="number" placeholder="NB 2" [(ngModel)]="num2"></ion-input>
-            </ion-item>
-            <ion-item class="ops-container">
-              <ion-button (click)="calculer('+')">+</ion-button>
-              <ion-button (click)="calculer('-')">-</ion-button>
-              <ion-button (click)="calculer('*')">*</ion-button>
-              <ion-button (click)="calculer('/')">/</ion-button>
-            </ion-item>
-            <ion-item class="clear-container">
-              <ion-button expand="block" (click)="effacer()" class="clear-btn">Effacer</ion-button>
-            </ion-item>
-            <ion-item class="result-container">
-              <ion-label>{{ resultat }}</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card-header>
-    </ion-card>
+
+    <!-- Result Display -->
+    <div class="display-screen">
+      <div class="display-expression">
+        <span>{{ num1 !== undefined ? num1 : '—' }} {{ activeOp || '' }} {{ num2 !== undefined ? num2 : '' }}</span>
+      </div>
+      <div class="display-result">
+        {{ resultat }}
+      </div>
+    </div>
+
+    <!-- Number Inputs -->
+    <div class="inputs-row">
+      <div class="input-wrapper">
+        <span class="input-icon">A</span>
+        <ion-input type="number" placeholder="0" [(ngModel)]="num1" class="styled-input">
+        </ion-input>
+      </div>
+      <div class="input-wrapper">
+        <span class="input-icon">B</span>
+        <ion-input type="number" placeholder="0" [(ngModel)]="num2" class="styled-input">
+        </ion-input>
+      </div>
+    </div>
+
+    <!-- Operation Buttons -->
+    <div class="ops-grid">
+      <button class="op-btn btn-add" (click)="calculer('+')">
+        <span class="op-icon">＋</span>
+        <span class="op-label">Additionner</span>
+      </button>
+      <button class="op-btn btn-sub" (click)="calculer('-')">
+        <span class="op-icon">－</span>
+        <span class="op-label">Soustraire</span>
+      </button>
+      <button class="op-btn btn-mul" (click)="calculer('*')">
+        <span class="op-icon">✕</span>
+        <span class="op-label">Multiplier</span>
+      </button>
+      <button class="op-btn btn-div" (click)="calculer('/')">
+        <span class="op-icon">÷</span>
+        <span class="op-label">Diviser</span>
+      </button>
+    </div>
+
+    <!-- Clear Button -->
+    <button class="clear-btn" (click)="effacer()">
+      <ion-icon name="trash-outline"></ion-icon>
+      Effacer
+    </button>
+
   </div>
 </ion-content>

@@ -1,22 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>BADRI WISSAL</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <h1>Demo Ionic Standalone</h1>
-    <p>Bienvenue dans mon application Ionic Standalone</p>
-    <ion-label>Demo Ionic Standalone</ion-label><br>
-    <ion-button>Test</ion-button>
+
+    <!-- Header Section -->
+    <div class="home-hero">
+      <div class="hero-icon">⬡</div>
+      <h1 class="hero-title">Ionic Standalone</h1>
+      <p class="hero-subtitle">Bienvenue dans votre application</p>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Navigation Card -->
+    <div class="nav-card" (click)="goToCalculsPage()">
+      <div class="nav-card-left">
+        <span class="nav-icon">⊞</span>
+        <div class="nav-info">
+          <span class="nav-title">Calculatrice</span>
+          <span class="nav-desc">Opérations arithmétiques</span>
+        </div>
+      </div>
+      <span class="nav-arrow">›</span>
+    </div>
+
   </div>
 </ion-content>
