@@ -22,4 +22,8 @@ export const routes: Routes = [
     path: 'transfert-data',
     loadComponent: () => import('./transfert-data/transfert-data.page').then( m => m.TransfertDataPage)
   },
+  {
+    path: 'ui-page',
+    loadComponent: () => import('./ui-page/ui-page.page').then( m => m.UIPage)
+  },
 ];

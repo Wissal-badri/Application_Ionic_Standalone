@@ -4,7 +4,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/ang
 import { Router } from '@angular/router';
 import { DataTransferService } from '../services/data-transfer.service';
 import { addIcons } from 'ionicons';
-import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline } from 'ionicons/icons';
+import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomePage {
     private router: Router,
     private dataTransferService: DataTransferService
   ) {
-    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline });
+    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline });
   }
 
   goToCalculsPage() {
@@ -36,5 +36,9 @@ export class HomePage {
   goToTransfertDataPage() {
     this.dataTransferService.setData(this.data);
     this.router.navigate(['/transfert-data']);
+  }
+
+  goToUIPage() {
+    this.router.navigate(['/ui-page']);
   }
 }
