@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="back-btn" (click)="goHome()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Transfert Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+
+    <!-- Header Section -->
+    <div class="data-hero">
+      <ion-icon class="hero-icon" name="swap-horizontal-outline"></ion-icon>
+      <h1 class="hero-title">Données Transférées</h1>
+      <p class="hero-subtitle">Informations reçues de la page d'accueil</p>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Data Card -->
+    <div class="data-card" *ngIf="data">
+      <div class="data-section">
+        <div class="data-label">Message</div>
+        <div class="data-value">{{ data.msg }}</div>
+      </div>
+
+      <div class="data-divider"></div>
+
+      <div class="data-section">
+        <div class="data-label">Identifiant</div>
+        <div class="data-value">{{ data.name }}</div>
+      </div>
+    </div>
+
+    <!-- No Data Message -->
+    <div class="no-data" *ngIf="!data">
+      <p>Aucune donnée à afficher</p>
+      <p class="hint">Cliquez sur "Transfert Data" depuis la page d'accueil pour transférer les données</p>
+    </div>
+
+  </div>
+</ion-content>

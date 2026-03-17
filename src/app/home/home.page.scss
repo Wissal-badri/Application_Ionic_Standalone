@@ -42,6 +42,8 @@ ion-title {
   line-height: 1;
   margin-bottom: 4px;
   opacity: 0.85;
+  width: 2.8rem;
+  height: 2.8rem;
 }
 
 .hero-title {
@@ -97,7 +99,10 @@ ion-title {
 
   .nav-icon {
     font-size: 1.4rem;
-    color: #1a3350;
+    color: #06b6d4;
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
   }
 
   .nav-info {

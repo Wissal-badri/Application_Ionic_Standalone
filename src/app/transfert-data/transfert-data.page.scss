@@ -1,0 +1,162 @@
+// ─── Même palette que calculs ────────────────────────────────────────────────
+ion-content {
+  --background: #080e1a;
+}
+
+ion-header ion-toolbar {
+  --background: #080e1a;
+  --border-color: #1e3d5c;
+}
+
+ion-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3a5270;
+}
+
+// ─── Back Button ──────────────────────────────────────────────────────────────
+ion-button.back-btn {
+  --color: #6b9cc8;
+
+  &:hover {
+    --color: #89b5e0;
+  }
+}
+
+// ─── Container ────────────────────────────────────────────────────────────────
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 40px 24px;
+  gap: 24px;
+}
+
+// ─── Hero Section ─────────────────────────────────────────────────────────────
+.data-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.hero-icon {
+  font-size: 2.8rem;
+  color: #1e9daf;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.hero-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e8eef8;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: #7b92b0;
+  margin: 0;
+  font-weight: 400;
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+.divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #1e9daf, transparent);
+  border-radius: 1px;
+}
+
+// ─── Data Card ────────────────────────────────────────────────────────────────
+.data-card {
+  width: 100%;
+  max-width: 340px;
+  background: linear-gradient(135deg, rgba(30, 45, 80, 0.6), rgba(30, 61, 92, 0.4));
+  border: 1px solid rgba(30, 157, 175, 0.3);
+  border-radius: 16px;
+  padding: 32px 24px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(30, 157, 175, 0.6);
+    background: linear-gradient(135deg, rgba(30, 61, 92, 0.7), rgba(30, 45, 80, 0.5));
+  }
+}
+
+// ─── Data Section ─────────────────────────────────────────────────────────────
+.data-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data-label {
+  font-size: 0.9rem;
+  color: #7b92b0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.data-value {
+  font-size: 1.6rem;
+  color: #1e9daf;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  word-break: break-word;
+}
+
+// ─── Data Divider ─────────────────────────────────────────────────────────────
+.data-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(30, 157, 175, 0.3), transparent);
+  margin: 8px 0;
+}
+
+// ─── No Data Message ──────────────────────────────────────────────────────────
+.no-data {
+  text-align: center;
+  padding: 40px 24px;
+
+  p {
+    color: #7b92b0;
+    font-size: 1.1rem;
+    margin: 12px 0 0 0;
+
+    &.hint {
+      font-size: 0.9rem;
+      color: #556581;
+      margin-top: 16px;
+      font-style: italic;
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-height: 600px) {
+  #container {
+    padding: 20px 24px;
+    gap: 16px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .data-card {
+    padding: 20px 16px;
+  }
+}

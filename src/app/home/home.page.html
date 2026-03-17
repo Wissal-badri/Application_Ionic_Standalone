@@ -9,7 +9,7 @@
 
     <!-- Header Section -->
     <div class="home-hero">
-      <div class="hero-icon">⬡</div>
+      <ion-icon class="hero-icon" name="analytics-outline"></ion-icon>
       <h1 class="hero-title">Ionic Standalone</h1>
       <p class="hero-subtitle">Bienvenue dans votre application</p>
     </div>
@@ -20,7 +20,7 @@
     <!-- Navigation Card -->
     <div class="nav-card" (click)="goToCalculsPage()">
       <div class="nav-card-left">
-        <span class="nav-icon">⊞</span>
+        <ion-icon class="nav-icon" name="calculator-outline"></ion-icon>
         <div class="nav-info">
           <span class="nav-title">Calculatrice</span>
           <span class="nav-desc">Opérations arithmétiques</span>
@@ -32,10 +32,22 @@
     <!-- Jeux Card -->
     <div class="nav-card" (click)="goToJeuxPage()">
       <div class="nav-card-left">
-        <span class="nav-icon">◈</span>
+        <ion-icon class="nav-icon" name="game-controller-outline"></ion-icon>
         <div class="nav-info">
           <span class="nav-title">Jeux</span>
           <span class="nav-desc">Accéder aux jeux</span>
+        </div>
+      </div>
+      <span class="nav-arrow">›</span>
+    </div>
+
+    <!-- Transfert Data Card -->
+    <div class="nav-card" (click)="goToTransfertDataPage()">
+      <div class="nav-card-left">
+        <ion-icon class="nav-icon" name="swap-horizontal-outline"></ion-icon>
+        <div class="nav-info">
+          <span class="nav-title">Transfert Data</span>
+          <span class="nav-desc">Transférer les données</span>
         </div>
       </div>
       <span class="nav-arrow">›</span>

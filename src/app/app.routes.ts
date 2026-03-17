@@ -18,4 +18,8 @@ export const routes: Routes = [
     path: 'jeux',
     loadComponent: () => import('./jeux/jeux.page').then( m => m.JeuxPage)
   },
+  {
+    path: 'transfert-data',
+    loadComponent: () => import('./transfert-data/transfert-data.page').then( m => m.TransfertDataPage)
+  },
 ];
