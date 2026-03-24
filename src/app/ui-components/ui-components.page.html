@@ -484,6 +484,397 @@
         </div>
       </div>
 
+      <!-- Card 27: Item Groups & Headers -->
+      <div class="ui-card">
+        <h3 class="card-title">Item Groups</h3>
+        <p class="card-description">Groupement de données structuré.</p>
+        <div class="component-container custom-inputs">
+          <ion-item-group>
+            <ion-item-divider color="light">
+              <ion-label>Contacts A-Z</ion-label>
+            </ion-item-divider>
+            <ion-item>
+              <ion-icon name="call" slot="start" color="primary"></ion-icon>
+              <ion-label>Alice Peterson</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
+              <ion-label>Bob Marley</ion-label>
+            </ion-item>
+          </ion-item-group>
+        </div>
+      </div>
+
+      <!-- Card 28: Input with Hints -->
+      <div class="ui-card">
+        <h3 class="card-title">Input Hints</h3>
+        <p class="card-description">Aide à la saisie interactive.</p>
+        <div class="component-container custom-inputs">
+          <ion-item>
+            <ion-input label="Utilisateur" labelPlacement="stacked" placeholder="JohnDoe" helperText="Choisissez un pseudo unique" errorText="Format invalide"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Site Web" labelPlacement="stacked" placeholder="https://" [counter]="true" maxlength="20"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 29: Vertical FAB List -->
+      <div class="ui-card">
+        <h3 class="card-title">Social FAB</h3>
+        <p class="card-description">Boutons flottants verticaux.</p>
+        <div class="component-container" style="position: relative; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+          <ion-fab vertical="center" horizontal="center">
+            <ion-fab-button color="danger">
+              <ion-icon name="heart"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="top">
+              <ion-fab-button color="primary"><ion-icon name="list"></ion-icon></ion-fab-button>
+              <ion-fab-button color="success"><ion-icon name="stats-chart"></ion-icon></ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+        </div>
+      </div>
+
+      <!-- Card 30: Advanced Skeleton -->
+      <div class="ui-card">
+        <h3 class="card-title">Skeleton Profile</h3>
+        <p class="card-description">Pré-chargement de profil riche.</p>
+        <div class="component-container custom-inputs">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+            <ion-skeleton-text [animated]="true" style="width: 50px; height: 50px; border-radius: 50%;"></ion-skeleton-text>
+            <div style="flex: 1;">
+              <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width: 40%;"></ion-skeleton-text>
+            </div>
+          </div>
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 60px; border-radius: 8px;"></ion-skeleton-text>
+        </div>
+      </div>
+
+      <!-- Card 31: Complex List Headers -->
+      <div class="ui-card">
+        <h3 class="card-title">List Metadata</h3>
+        <p class="card-description">Entêtes de liste avec actions.</p>
+        <div class="component-container custom-inputs">
+          <ion-list>
+            <ion-list-header>
+              <ion-label style="font-weight: bold; color: #06b6d4;">Mises à jour</ion-label>
+              <ion-button fill="clear" color="tertiary" size="small">Voir tout</ion-button>
+            </ion-list-header>
+            <ion-item>
+              <ion-icon name="information-circle" slot="start" color="primary"></ion-icon>
+              <ion-label>Version 2.0 disponible</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+
+      <!-- Card 32: Forms Clear Button -->
+      <div class="ui-card">
+        <h3 class="card-title">Clearable Inputs</h3>
+        <p class="card-description">Champs avec bouton d'effacement.</p>
+        <div class="component-container custom-inputs">
+          <ion-item>
+            <ion-input label="Recherche ID" labelPlacement="stacked" placeholder="Taper ici..." [clearInput]="true"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Code promo" labelPlacement="stacked" placeholder="SAVE20" [clearOnEdit]="true"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 33: Multi-Filter Selection -->
+      <div class="ui-card">
+        <h3 class="card-title">Filter Chips</h3>
+        <p class="card-description">Sélections rapides par filtres.</p>
+        <div class="component-container" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+          <ion-chip outline="true" color="primary">
+            <ion-icon name="filter"></ion-icon>
+            <ion-label>Prix</ion-label>
+          </ion-chip>
+          <ion-chip outline="true" color="secondary">
+            <ion-icon name="star"></ion-icon>
+            <ion-label>Notes</ion-label>
+          </ion-chip>
+          <ion-chip outline="true" color="tertiary">
+            <ion-icon name="card"></ion-icon>
+            <ion-label>Payé</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <!-- Card 34: Status Cards -->
+      <div class="ui-card">
+        <h3 class="card-title">Status Cards</h3>
+        <p class="card-description">Boîtes de statut et d'alertes.</p>
+        <div class="component-container custom-inputs">
+          <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+            <ion-icon name="alert-circle" color="danger" style="font-size: 1.5rem;"></ion-icon>
+            <div style="color: #ef4444; font-size: 0.9rem;">Erreur critique détectée sur le serveur.</div>
+          </div>
+          <div style="background: rgba(255, 196, 9, 0.1); border: 1px solid rgba(255, 196, 9, 0.3); border-radius: 8px; padding: 12px; margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+            <ion-icon name="information-circle" color="warning" style="font-size: 1.5rem;"></ion-icon>
+            <div style="color: #ffc409; font-size: 0.9rem;">Mise à jour système requise bientôt.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 35: Code Snippet UI -->
+      <div class="ui-card">
+        <h3 class="card-title">Code Snippet</h3>
+        <p class="card-description">Visualisation de blocs de code.</p>
+        <div class="component-container" style="background: rgba(0,0,0,0.5); border-radius: 8px; padding: 12px; border-left: 4px solid #06b6d4;">
+          <code style="color: #fff; font-family: monospace; font-size: 0.8rem;">
+            npm install @ionic/core<br/>
+            ionic start myApp tabs
+          </code>
+        </div>
+      </div>
+
+      <!-- Card 36: Price Tag & Badge -->
+      <div class="ui-card">
+        <h3 class="card-title">Price Card</h3>
+        <p class="card-description">Étiquettes de prix stylisées.</p>
+        <div class="component-container" style="display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;">
+          <div style="background: #06b6d4; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-size: 1.2rem;">
+            49.99 €
+          </div>
+          <ion-badge color="success">-20% Promo</ion-badge>
+        </div>
+      </div>
+
+      <!-- Card 37: Quick Actions -->
+      <div class="ui-card">
+        <h3 class="card-title">Quick Actions</h3>
+        <p class="card-description">Boutons d'action compacts.</p>
+        <div class="component-container" style="display: flex; gap: 10px; justify-content: center;">
+          <ion-button color="danger" shape="round" style="--padding-start: 10px; --padding-end: 10px;">
+            <ion-icon name="flash"></ion-icon>
+          </ion-button>
+          <ion-button color="primary" shape="round" style="--padding-start: 10px; --padding-end: 10px;">
+            <ion-icon name="code"></ion-icon>
+          </ion-button>
+          <ion-button color="success" shape="round" style="--padding-start: 10px; --padding-end: 10px;">
+            <ion-icon name="gift"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <!-- Card 38: Shopping Cart UI -->
+      <div class="ui-card">
+        <h3 class="card-title">Mini Cart</h3>
+        <p class="card-description">Résumé de panier d'achat.</p>
+        <div class="component-container custom-inputs">
+          <ion-item>
+            <ion-icon name="cart" slot="start" color="tertiary"></ion-icon>
+            <ion-label>Articles: 05</ion-label>
+          </ion-item>
+          <ion-button expand="block" size="small" color="tertiary" fill="outline">Checkout</ion-button>
+        </div>
+      </div>
+
+      <!-- Card 39: Battery Indicator -->
+      <div class="ui-card">
+        <h3 class="card-title">System Status</h3>
+        <p class="card-description">Indicateurs de charge batterie.</p>
+        <div class="component-container" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <ion-icon name="battery-charging" color="success" style="font-size: 3rem;"></ion-icon>
+          <div style="font-size: 1.5rem; font-weight: bold; color: #e8eef8;">85%</div>
+          <ion-progress-bar value="0.85" color="success" style="height: 6px; border-radius: 3px;"></ion-progress-bar>
+        </div>
+      </div>
+
+      <!-- Card 40: Connectivity Settings -->
+      <div class="ui-card">
+        <h3 class="card-title">Connectivity</h3>
+        <p class="card-description">Gestion du Wi-Fi et Bluetooth.</p>
+        <div class="component-container custom-inputs">
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="wifi" slot="start" color="primary"></ion-icon>
+            <ion-label>Wi-Fi Home</ion-label>
+            <ion-toggle slot="end" checked="true"></ion-toggle>
+          </ion-item>
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="bluetooth" slot="start" color="secondary"></ion-icon>
+            <ion-label>Bluetooth</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 41: Alarm & Timer -->
+      <div class="ui-card">
+        <h3 class="card-title">Alarm & Timer</h3>
+        <p class="card-description">Réveil et minuteur rapide.</p>
+        <div class="component-container" style="display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 10px; color: #ffc409;">
+            <ion-icon name="alarm" style="font-size: 1.5rem;"></ion-icon>
+            <span style="font-size: 1.2rem; font-weight: 600;">07:30 AM</span>
+          </div>
+          <ion-button size="small" color="warning" fill="outline" shape="round">Modifier Alarme</ion-button>
+        </div>
+      </div>
+
+      <!-- Card 42: Notification Indicator -->
+      <div class="ui-card">
+        <h3 class="card-title">Notifications</h3>
+        <p class="card-description">Messages non-lus personnalisés.</p>
+        <div class="component-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+          <div style="position: relative;">
+            <ion-icon name="mail" style="font-size: 2.5rem; color: #06b6d4;"></ion-icon>
+            <ion-badge color="danger" style="position: absolute; top: -5px; right: -5px; border-radius: 50%; width: 20px; height: 20px; padding: 3px 0 0 0; text-align: center;">4</ion-badge>
+          </div>
+          <div style="position: relative;">
+            <ion-icon name="call" style="font-size: 2.5rem; color: #6b9cc8;"></ion-icon>
+            <ion-badge color="tertiary" style="position: absolute; top: -5px; right: -5px; border-radius: 50%; width: 22px; height: 22px; padding: 4px 0 0 0; text-align: center;">1</ion-badge>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 43: Health Pulse -->
+      <div class="ui-card">
+        <h3 class="card-title">Health Tracker</h3>
+        <p class="card-description">Fréquence cardiaque en direct.</p>
+        <div class="component-container" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+          <ion-icon name="pulse" color="danger" style="font-size: 3rem; animation: pulse 1.5s infinite;"></ion-icon>
+          <div style="font-size: 1.8rem; font-weight: bold; color: #fff;">72 <small style="font-size: 0.8rem; opacity: 0.6;">BPM</small></div>
+        </div>
+      </div>
+
+      <!-- Card 44: Privacy Lock -->
+      <div class="ui-card">
+        <h3 class="card-title">Privacy & Lock</h3>
+        <p class="card-description">Sécurité du profil utilisateur.</p>
+        <div class="component-container custom-inputs">
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="lock-closed" slot="start" color="tertiary"></ion-icon>
+            <ion-label>Mode Privé</ion-label>
+            <ion-toggle slot="end" color="tertiary"></ion-toggle>
+          </ion-item>
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="eye-off" slot="start" color="medium"></ion-icon>
+            <ion-label>Masquer ID</ion-label>
+            <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 45: Social Share -->
+      <div class="ui-card">
+        <h3 class="card-title">Quick Share</h3>
+        <p class="card-description">Partage social instantané.</p>
+        <div class="component-container" style="display: flex; justify-content: center; gap: 12px;">
+          <ion-button fill="outline" color="primary" shape="round">
+            <ion-icon name="share-social"></ion-icon>
+          </ion-button>
+          <ion-button fill="solid" color="primary" shape="round">Partager</ion-button>
+        </div>
+      </div>
+
+      <!-- Card 46: QR Code Generator -->
+      <div class="ui-card">
+        <h3 class="card-title">QR Connect</h3>
+        <p class="card-description">Scanner pour connexion rapide.</p>
+        <div class="component-container" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+          <div style="background: white; padding: 10px; border-radius: 8px;">
+            <ion-icon name="qr-code" style="font-size: 4rem; color: #111;"></ion-icon>
+          </div>
+          <ion-label color="medium">ID: #QR-7890</ion-label>
+        </div>
+      </div>
+
+      <!-- Card 47: Appearance Themes -->
+      <div class="ui-card">
+        <h3 class="card-title">Appearance</h3>
+        <p class="card-description">Thèmes Jour et Nuit.</p>
+        <div class="component-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+          <div style="text-align: center;">
+            <ion-icon name="sunny" style="font-size: 2rem; color: #ffc409;"></ion-icon>
+            <p style="margin: 5px 0 0 0; font-size: 0.7rem;">Jour</p>
+          </div>
+          <ion-segment value="dark" style="width: 100px;">
+            <ion-segment-button value="light"></ion-segment-button>
+            <ion-segment-button value="dark"></ion-segment-button>
+          </ion-segment>
+          <div style="text-align: center;">
+            <ion-icon name="moon" style="font-size: 2rem; color: #6b9cc8;"></ion-icon>
+            <p style="margin: 5px 0 0 0; font-size: 0.7rem;">Nuit</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 48: Volume Mixer -->
+      <div class="ui-card">
+        <h3 class="card-title">Audio Mixer</h3>
+        <p class="card-description">Contrôles de volume précis.</p>
+        <div class="component-container custom-inputs">
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="volume-low" slot="start"></ion-icon>
+            <ion-range min="0" max="100" value="40" color="secondary"></ion-range>
+            <ion-icon name="volume-high" slot="end"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 49: Music Tracks -->
+      <div class="ui-card">
+        <h3 class="card-title">Music Player</h3>
+        <p class="card-description">Liste de lecture suggérée.</p>
+        <div class="component-container custom-inputs">
+          <ion-item button lines="full" style="--background: transparent;">
+            <ion-icon name="musical-notes" slot="start" color="tertiary"></ion-icon>
+            <ion-label>Midnight Jazz</ion-label>
+            <ion-note slot="end">4:12</ion-note>
+          </ion-item>
+          <ion-item button lines="none" style="--background: transparent;">
+            <ion-icon name="musical-notes" slot="start" color="medium"></ion-icon>
+            <ion-label>Urban Beats</ion-label>
+            <ion-note slot="end">3:45</ion-note>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 50: Precise Timer -->
+      <div class="ui-card">
+        <h3 class="card-title">Stopwatch</h3>
+        <p class="card-description">Chronomètre de précision.</p>
+        <div class="component-container" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <ion-icon name="timer" color="primary" style="font-size: 2.5rem;"></ion-icon>
+          <div style="font-family: monospace; font-size: 1.8rem; color: #06b6d4;">{{ formatStopwatch() }}</div>
+          <div style="display: flex; gap: 10px;">
+            <ion-button size="small" [color]="isStopwatchRunning ? 'danger' : 'primary'" (click)="toggleStopwatch()">
+              {{ isStopwatchRunning ? 'Stop' : 'Start' }}
+            </ion-button>
+            <ion-button size="small" color="medium" fill="outline" (click)="resetStopwatch()">Reset</ion-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 51: Advanced Tools -->
+      <div class="ui-card">
+        <h3 class="card-title">Developer Tools</h3>
+        <p class="card-description">Réglages avancés du système.</p>
+        <div class="component-container custom-inputs">
+          <ion-item lines="none" style="--background: transparent;">
+            <ion-icon name="construct" slot="start" color="warning"></ion-icon>
+            <ion-label>Debug Mode</ion-label>
+            <ion-toggle slot="end" color="warning"></ion-toggle>
+          </ion-item>
+        </div>
+      </div>
+
+      <!-- Card 52: Active Steps -->
+      <div class="ui-card">
+        <h3 class="card-title">Step Counter</h3>
+        <p class="card-description">Objectif de marche quotidien.</p>
+        <div class="component-container" style="text-align: center;">
+          <div style="font-size: 2.2rem; font-weight: 800; color: #06b6d4;">8,452</div>
+          <div style="color: #7b92b0; font-size: 0.9rem; margin-bottom: 5px;">sur 10,000 pas</div>
+          <ion-progress-bar value="0.84" color="tertiary" style="height: 8px; border-radius: 4px;"></ion-progress-bar>
+        </div>
+      </div>
+
     </div>
   </div>
 
