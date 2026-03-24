@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-btn" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Météo & Climat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Search Area -->
+  <div class="search-container">
+    <ion-searchbar 
+      placeholder="Entrez le nom d'une ville (ex: Paris, Tokyo)" 
+      [(ngModel)]="city" 
+      (keyup.enter)="getWeather()">
+    </ion-searchbar>
+    <ion-button expand="block" shape="round" color="tertiary" (click)="getWeather()">
+      Rechercher la météo
+    </ion-button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMsg" class="error-msg">
+    {{ errorMsg }}
+  </div>
+
+  <!-- Results Area -->
+  <div *ngIf="weatherData" class="weather-results">
+    
+    <!-- Hero Card: Main weather info -->
+    <div class="ui-card hero-card">
+      <div class="hero-header">
+        <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+        <!-- Using flagcdn as the best free flag API requiring no key -->
+        <img [src]="'https://flagcdn.com/w40/' + weatherData.sys.country.toLowerCase() + '.png'" alt="Drapeau" class="country-flag" />
+      </div>
+      
+      <div class="hero-body">
+        <img [src]="'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@4x.png'" alt="weather icon" class="weather-icon"/>
+        <div class="temp-box">
+          <span class="temp">{{ weatherData.main.temp | number:'1.0-0' }}°C</span>
+          <span class="desc">{{ weatherData.weather[0].description | titlecase }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter Grid (Max params !) -->
+    <ion-grid class="stats-grid">
+      <ion-row>
+        
+        <!-- Températures -->
+        <ion-col size="12" size-md="6" size-lg="3">
+          <div class="stat-card">
+            <ion-icon name="thermometer" class="main-stat-icon"></ion-icon>
+            <h4>Températures</h4>
+            <p><span class="label-with-icon"><ion-icon name="thermometer-outline"></ion-icon> Ressenti:</span> <span class="val">{{ weatherData.main.feels_like | number:'1.0-0' }}°C</span></p>
+            <p><span class="label-with-icon"><ion-icon name="trending-down-outline"></ion-icon> Temp. Min:</span> <span class="val">{{ weatherData.main.temp_min | number:'1.0-0' }}°C</span></p>
+            <p><span class="label-with-icon"><ion-icon name="trending-up-outline"></ion-icon> Temp. Max:</span> <span class="val">{{ weatherData.main.temp_max | number:'1.0-0' }}°C</span></p>
+          </div>
+        </ion-col>
+        
+        <!-- Pression & Vent -->
+        <ion-col size="12" size-md="6" size-lg="3">
+          <div class="stat-card">
+            <ion-icon name="speedometer" class="main-stat-icon"></ion-icon>
+            <h4>Pression & Vent</h4>
+            <p><span class="label-with-icon"><ion-icon name="download-outline"></ion-icon> Pression:</span> <span class="val">{{ weatherData.main.pressure }} hPa</span></p>
+            <p><span class="label-with-icon"><ion-icon name="leaf-outline"></ion-icon> Vitesse vent:</span> <span class="val">{{ weatherData.wind.speed }} m/s</span></p>
+            <p><span class="label-with-icon"><ion-icon name="navigation-outline"></ion-icon> Direction:</span> <span class="val">{{ weatherData.wind.deg }}°</span></p>
+          </div>
+        </ion-col>
+
+        <!-- Humidité & Nuages -->
+        <ion-col size="12" size-md="6" size-lg="3">
+          <div class="stat-card">
+            <ion-icon name="water" class="main-stat-icon"></ion-icon>
+            <h4>Air & Visibilité</h4>
+            <p><span class="label-with-icon"><ion-icon name="water-outline"></ion-icon> Humidité:</span> <span class="val">{{ weatherData.main.humidity }}%</span></p>
+            <p><span class="label-with-icon"><ion-icon name="cloud-outline"></ion-icon> Nuages:</span> <span class="val">{{ weatherData.clouds.all }}%</span></p>
+            <p><span class="label-with-icon"><ion-icon name="eye-outline"></ion-icon> Visibilité:</span> <span class="val">{{ weatherData.visibility / 1000 }} km</span></p>
+          </div>
+        </ion-col>
+
+        <!-- Géo & Soleil -->
+        <ion-col size="12" size-md="6" size-lg="3">
+          <div class="stat-card">
+            <ion-icon name="compass" class="main-stat-icon"></ion-icon>
+            <h4>Géo & Éphéméride</h4>
+            <p><span class="label-with-icon"><ion-icon name="location-outline"></ion-icon> Latitude:</span> <span class="val">{{ weatherData.coord.lat }}</span></p>
+            <p><span class="label-with-icon"><ion-icon name="location-outline"></ion-icon> Longitude:</span> <span class="val">{{ weatherData.coord.lon }}</span></p>
+            <p><span class="label-with-icon"><ion-icon name="sunrise-outline"></ion-icon> Lever:</span> <span class="val">{{ formatTime(weatherData.sys.sunrise) }}</span></p>
+            <p><span class="label-with-icon"><ion-icon name="sunset-outline"></ion-icon> Coucher:</span> <span class="val">{{ formatTime(weatherData.sys.sunset) }}</span></p>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

@@ -4,7 +4,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/ang
 import { Router } from '@angular/router';
 import { DataTransferService } from '../services/data-transfer.service';
 import { addIcons } from 'ionicons';
-import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline } from 'ionicons/icons';
+import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomePage {
     private router: Router,
     private dataTransferService: DataTransferService
   ) {
-    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline });
+    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline });
   }
 
   goToCalculsPage() {
@@ -40,5 +40,13 @@ export class HomePage {
 
   goToUIPage() {
     this.router.navigate(['/ui-page']);
+  }
+
+  goToUIComponents() {
+    this.router.navigate(['/ui-components']);
+  }
+
+  goToWeatherPage() {
+    this.router.navigate(['/weather']);
   }
 }

@@ -1,0 +1,119 @@
+ion-content {
+  --background: #080e1a;
+}
+
+ion-header ion-toolbar {
+  --background: #080e1a;
+  --border-color: #1e3d5c;
+}
+
+ion-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3a5270;
+}
+
+ion-button.back-btn {
+  --color: #6b9cc8;
+  &:hover {
+    --color: #89b5e0;
+  }
+}
+
+#container {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.ui-card {
+  background: linear-gradient(135deg, rgba(30, 45, 80, 0.6), rgba(30, 61, 92, 0.4));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #06b6d4;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.card-description {
+  font-size: 0.8rem;
+  color: #7b92b0;
+  margin: 6px 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+.component-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Restyle custom internal items inside the dark cards to match the app style */
+.custom-inputs {
+  ion-item {
+    --background: rgba(0, 0, 0, 0.2);
+    --border-color: rgba(6, 182, 212, 0.2);
+    --border-radius: 8px;
+    margin-bottom: 8px;
+    --color: #e8eef8;
+  }
+  
+  ion-input, ion-textarea, ion-select, ion-datetime {
+    color: #e8eef8;
+  }
+
+  ion-searchbar {
+    --background: rgba(0, 0, 0, 0.2);
+    --color: #e8eef8;
+    --placeholder-color: #7b92b0;
+    --border-radius: 8px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

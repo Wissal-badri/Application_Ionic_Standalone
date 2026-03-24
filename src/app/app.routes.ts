@@ -25,5 +25,12 @@ export const routes: Routes = [
   {
     path: 'ui-page',
     loadComponent: () => import('./ui-page/ui-page.page').then( m => m.UIPage)
+  },  {
+    path: 'ui-components',
+    loadComponent: () => import('./ui-components/ui-components.page').then( m => m.UiComponentsPage)
   },
+  {
+    path: 'weather',
+    loadComponent: () => import('./weather/weather.page').then( m => m.WeatherPage)
+  }
 ];
