@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { 
@@ -28,8 +29,8 @@ import {
 })
 export class WeatherPage implements OnInit {
   public city: string = '';
-  // La clé API de l'utilisateur
-  public apiKey: string = 'a2b016036874cee322150e0e3fcb6673';
+  // La clé API est maintenant chargée depuis l'environnement pour la sécurité
+  public apiKey: string = environment.weatherApiKey;
   public weatherData: any = null;
   public errorMsg: string = '';
 
