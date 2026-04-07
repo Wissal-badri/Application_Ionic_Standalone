@@ -89,5 +89,41 @@
       <span class="nav-arrow">›</span>
     </div>
 
+    <!-- Maps Page Card -->
+    <div class="nav-card" (click)="goToMapsPage()">
+      <div class="nav-card-left">
+        <ion-icon class="nav-icon" name="map-outline"></ion-icon>
+        <div class="nav-info">
+          <span class="nav-title">Google Maps</span>
+          <span class="nav-desc">Explorer la carte</span>
+        </div>
+      </div>
+      <span class="nav-arrow">›</span>
+    </div>
+
+    <!-- Clipboard Page Card -->
+    <div class="nav-card" (click)="goToClipboardPage()">
+      <div class="nav-card-left">
+        <ion-icon class="nav-icon" name="clipboard-outline"></ion-icon>
+        <div class="nav-info">
+          <span class="nav-title">Presse-papiers</span>
+          <span class="nav-desc">Gérer le clipboard</span>
+        </div>
+      </div>
+      <span class="nav-arrow">›</span>
+    </div>
+
+    <!-- SMS Phone Card -->
+    <div class="nav-card" (click)="goToSMSPhonePage()">
+      <div class="nav-card-left">
+        <ion-icon class="nav-icon" name="chatbubble-ellipses-outline"></ion-icon>
+        <div class="nav-info">
+          <span class="nav-title">SMS & Téléphone</span>
+          <span class="nav-desc">Ouvrir les gestionnaires</span>
+        </div>
+      </div>
+      <span class="nav-arrow">›</span>
+    </div>
+
   </div>
 </ion-content>

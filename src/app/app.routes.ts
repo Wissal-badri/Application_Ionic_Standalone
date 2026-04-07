@@ -32,5 +32,17 @@ export const routes: Routes = [
   {
     path: 'weather',
     loadComponent: () => import('./weather/weather.page').then( m => m.WeatherPage)
+  },
+  {
+    path: 'maps',
+    loadComponent: () => import('./maps/maps.page').then( m => m.MapsPage)
+  },
+  {
+    path: 'clipboard',
+    loadComponent: () => import('./clipboard/clipboard.page').then( m => m.ClipboardPage)
+  },
+  {
+    path: 'sms-phone',
+    loadComponent: () => import('./sms-phone/sms-phone.page').then( m => m.SmsPhonePage)
   }
 ];

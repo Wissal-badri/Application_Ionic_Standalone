@@ -1,0 +1,81 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Presse-papiers</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="clipboard-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="clipboard-container">
+    <!-- Copy Section -->
+    <ion-card mode="ios">
+      <ion-card-header>
+        <ion-card-title>COPIER DU TEXTE</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="custom-input">
+          <ion-item lines="none" mode="md">
+            <ion-icon name="copy-outline" slot="start"></ion-icon>
+            <ion-input
+              placeholder="Texte à copier..."
+              [(ngModel)]="inputText"
+              clearInput
+            ></ion-input>
+          </ion-item>
+        </div>
+        <ion-button expand="block" shape="round" class="main-btn" (click)="writeToClipboard()">
+          <ion-icon name="copy-outline" slot="start"></ion-icon>
+          COPIER DANS LE PRESSE-PAPIERS
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Paste Section -->
+    <ion-card mode="ios">
+      <ion-card-header>
+        <ion-card-title>LIRE LE CONTENU</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="display-area" *ngIf="clipboardContent">
+          <ion-label color="medium" class="ion-margin-bottom" style="font-weight: 700; font-size: 0.8rem; letter-spacing: 1px;">CONTENU ACTUEL :</ion-label>
+          <div class="result-box">
+            {{ clipboardContent }}
+          </div>
+        </div>
+        
+        <div class="empty-state" *ngIf="!clipboardContent">
+          <ion-icon name="clipboard-outline" class="big-icon"></ion-icon>
+          <p>AUCUN CONTENU RÉCUPÉRÉ</p>
+        </div>
+
+        <ion-button expand="block" shape="round" fill="outline" class="outline-btn" (click)="readFromClipboard()">
+          <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+          RÉCUPÉRER LE CONTENU
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="actions">
+      <ion-button fill="clear" color="danger" (click)="clearFields()">
+        <ion-icon name="trash-outline" slot="start"></ion-icon>
+        RÉINITIALISER LES CHAMPS
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-toast
+    [isOpen]="showToast"
+    [message]="toastMessage"
+    [duration]="2500"
+    [color]="toastColor"
+    class="custom-toast"
+    (didDismiss)="showToast = false"
+  ></ion-toast>
+</ion-content>

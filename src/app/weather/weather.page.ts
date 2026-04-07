@@ -64,7 +64,13 @@ export class WeatherPage implements OnInit {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=metric&lang=fr`;
     
     this.http.get(url).subscribe({
-      next: (data) => {
+      next: (data: any) => {
+        // Condition spécifique pour Dakhla (Maroc)
+        if (data && data.name && data.name.toLowerCase().includes('dakhla')) {
+          if (data.sys && data.sys.country === 'EH') {
+            data.sys.country = 'MA';
+          }
+        }
         this.weatherData = data;
         console.log(data); // Log pour analyse
       },

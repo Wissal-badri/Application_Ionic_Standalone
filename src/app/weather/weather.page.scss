@@ -1,198 +1,224 @@
 ion-content {
-  --background: #080e1a;
-  color: #e8eef8;
+  --background: #080e1a; // Deeper Midnight
+  color: #f8fafc;
+  --padding-top: 10px;
 }
 
+// ─── Header : Pro Dark / Cyan Border ──────────────────────────────────────────
 ion-header ion-toolbar {
-  --background: #080e1a;
-  --border-color: #1e3d5c;
+  --background: #0f172a; // Midnight Blue
+  --border-color: #1e293b; // Subtle border
+  --border-width: 0 0 1px 0;
+  --color: #94a3b8; // Gray text
 }
 
 ion-title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #3a5270;
+  color: #94a3b8; // Gray color
 }
 
 ion-buttons ion-back-button {
-  --color: #6b9cc8;
+  --color: #94a3b8; 
   &:hover {
-    --color: #89b5e0;
+    --color: #ffffff;
   }
 }
 
+// ─── Search Section ────────────────────────────────────────────────────────────
 .search-container {
-  padding: 20px;
-  max-width: 600px;
+  padding: 40px 20px;
+  max-width: 650px;
   margin: 0 auto;
   
   ion-searchbar {
-    --background: rgba(255, 255, 255, 0.05);
-    --color: #e8eef8;
+    --background: rgba(14, 24, 40, 0.8);
+    --color: #ffffff;
+    --placeholder-color: #475569;
     --border-radius: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    border: 2px solid rgba(6, 182, 212, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      border-color: #06b6d4;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+    }
+  }
+
+  ion-button {
+    --background: #0e1828; 
+    --color: #06b6d4;
+    --border-color: #06b6d4;
+    --border-style: solid;
+    --border-width: 2px;
+    --border-radius: 14px;
+    --box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    height: 52px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      --background: #06b6d4;
+      --color: #ffffff;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+    }
   }
 }
 
-.error-msg {
-  text-align: center;
-  color: #ef4444;
-  padding: 15px;
-  font-weight: bold;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 8px;
-  max-width: 600px;
-  margin: 0 auto 20px auto;
-}
-
+// ─── Weather Data Visualization ──────────────────────────────────────────────
 .weather-results {
-  padding: 0 20px 40px;
-  max-width: 1000px;
+  padding: 0 20px 80px;
+  max-width: 1200px;
   margin: 0 auto;
-  animation: fadeIn 0.4s ease-in-out;
+  animation: slideInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.ui-card {
-  background: linear-gradient(135deg, rgba(30, 45, 80, 0.6), rgba(30, 61, 92, 0.4));
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  padding: 24px;
-}
-
-.hero-card {
+// Hero Info - Large Glass Block
+.ui-card.hero-card {
+  background: linear-gradient(145deg, rgba(14, 24, 40, 0.8), rgba(8, 14, 26, 0.6));
+  border: 2px solid #06b6d4; // Strong Cyan accent
+  border-radius: 30px;
+  padding: 40px;
   text-align: center;
-  margin-bottom: 24px;
-  
+  margin-bottom: 40px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+
   .hero-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-
     h2 {
+      font-size: 3rem;
+      font-weight: 200;
+      letter-spacing: -1px;
       margin: 0;
-      color: #06b6d4;
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: 1px;
+      color: #ffffff;
     }
-    
     .country-flag {
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-      height: 26px;
+      height: 30px;
+      border-radius: 6px;
+      margin-top: 15px;
+      filter: saturate(1.2);
     }
   }
-}
 
-.hero-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 15px;
-
-  .weather-icon {
-    width: 130px;
-    height: 130px;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
-  }
-  
-  .temp-box {
+  .hero-body {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
 
-    .temp {
-      font-size: 4.5rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #e8eef8;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    .weather-icon {
+      width: 160px;
+      height: 160px;
+      filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.4));
+      animation: pulsate 4s ease-in-out infinite;
     }
 
-    .desc {
-      font-size: 1.3rem;
-      color: #7b92b0;
-      text-transform: capitalize;
-      margin-top: 5px;
-      font-weight: 500;
+    .temp-box {
+      .temp {
+        font-size: 8rem;
+        font-weight: 100;
+        letter-spacing: -5px;
+        color: #ffffff;
+        background: linear-gradient(to bottom, #ffffff, #06b6d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .desc {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #06b6d4;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-top: -10px;
+      }
     }
   }
 }
 
-.stats-grid {
-  padding: 0;
-  
-  ion-col {
-    padding: 10px;
-  }
+@keyframes pulsate {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.2) drop-shadow(0 0 25px rgba(6, 182, 212, 0.6)); }
+  100% { transform: scale(1); filter: brightness(1); }
 }
 
+// Stats Cards - Mini Data Cubes
 .stat-card {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 16px;
+  background: rgba(14, 24, 40, 0.5);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  border-radius: 20px;
+  padding: 24px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    transform: translateY(-5px);
-    background: rgba(6, 182, 212, 0.1);
-    border-color: rgba(6, 182, 212, 0.3);
+    border-color: #06b6d4;
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(14, 24, 40, 0.8);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.2);
   }
 
   .main-stat-icon {
-    font-size: 2.2rem;
-    color: #6b9cc8;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #475569;
+    margin-bottom: 20px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+
+  &:hover .main-stat-icon {
+    color: #06b6d4;
+    opacity: 1;
+    transform: scale(1.1);
   }
 
   h4 {
-    color: #e8eef8;
-    margin: 0 0 12px 0;
-    font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 8px;
-    font-weight: 600;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
   }
 
   p {
-    color: #7b92b0;
-    margin: 6px 0;
-    font-size: 0.95rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    margin: 14px 0;
+    
     .label-with-icon {
+      font-size: 0.85rem;
+      color: #475569;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       
-      ion-icon {
-        font-size: 1.1rem;
-        color: #6b9cc8;
-        opacity: 0.8;
-      }
+      ion-icon { font-size: 1.1rem; }
     }
 
-    span.val {
-      color: #06b6d4;
-      font-weight: bold;
+    .val {
+      font-family: 'JetBrains Mono', monospace;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
   }
 }

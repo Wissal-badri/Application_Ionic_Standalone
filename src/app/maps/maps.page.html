@@ -1,0 +1,74 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Google Maps Explorer</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="map"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Progress Bar during searching -->
+  <ion-progress-bar *ngIf="isSearching" type="indeterminate" color="primary"></ion-progress-bar>
+
+  <div id="map-container">
+    <!-- Map Element -->
+    <div #mapElement id="map"></div>
+
+    <!-- Floating Search Bar -->
+    <div class="search-overlay">
+      <ion-searchbar 
+        [(ngModel)]="searchQuery" 
+        (ionInput)="null"
+        (keyup.enter)="onSearch()"
+        placeholder="Rechercher un lieu..."
+        class="custom-search"
+        [debounce]="500"
+        show-clear-button="always"
+        animated="true"
+        color="dark">
+      </ion-searchbar>
+    </div>
+
+    <!-- Zoom Controls -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="zoom-fab">
+      <ion-fab-button size="small" color="dark" (click)="zoomIn()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small" color="dark" (click)="zoomOut()" style="margin-top: 10px;">
+        <ion-icon name="remove"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!-- Map Type Selector -->
+    <div class="segment-overlay">
+      <ion-segment value="dark" (ionChange)="onMapTypeChange($event)" mode="ios" select-color="primary">
+        <ion-segment-button value="normal">
+          <ion-icon name="map"></ion-icon>
+          <ion-label>NORMAL</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="satellite">
+          <ion-icon name="camera"></ion-icon>
+          <ion-label>SATELLITE</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="dark">
+          <ion-icon name="contrast"></ion-icon>
+          <ion-label>DARK</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+
+  <ion-toast 
+    [isOpen]="showToast" 
+    [message]="toastMessage" 
+    duration="2000" 
+    position="top"
+    color="primary">
+  </ion-toast>
+</ion-content>

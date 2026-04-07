@@ -1,0 +1,137 @@
+ion-content {
+  --background: #080e1a !important; 
+  color: #f8fafc !important;
+}
+
+// ─── Header : Pro Midnight Blue / Gray Text ───────────────────────────────────
+ion-header ion-toolbar {
+  --background: #0f172a !important;
+  --border-color: #1e293b !important;
+  --border-width: 0 0 1px 0 !important;
+  --color: #94a3b8 !important;
+}
+
+ion-title {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #94a3b8 !important; // Gray color
+}
+
+ion-buttons ion-back-button {
+  --color: #94a3b8 !important; 
+}
+
+// ─── Main Container ────────────────────────────────────────────────────────────
+.clipboard-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px !important;
+  max-width: 650px !important;
+  margin: 40px auto !important;
+  padding: 0 20px !important;
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Cards : Glassmorphism + Cyan Neon Border ─────────────────────────────────
+ion-card {
+  margin: 0 !important;
+  background: linear-gradient(145deg, rgba(14, 24, 40, 0.9), rgba(8, 14, 26, 0.7)) !important;
+  border: 2px solid #06b6d4 !important; // Neon Cyan Border
+  border-radius: 28px !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 15px rgba(6, 182, 212, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  padding: 15px !important;
+  transition: all 0.4s ease !important;
+
+  &:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(6, 182, 212, 0.2) !important;
+  }
+
+  ion-card-title {
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    color: #06b6d4 !important; // Cyan
+  }
+}
+
+// ─── Input Styling ─────────────────────────────────────────────────────────────
+.custom-input {
+  background: rgba(8, 14, 26, 0.6) !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 16px !important;
+  margin: 20px 0 !important;
+  padding: 5px !important;
+
+  ion-item {
+    --background: transparent !important;
+    --color: #ffffff !important;
+    
+    ion-icon {
+      color: #06b6d4 !important;
+      font-size: 1.5rem !important;
+    }
+
+    ion-input {
+      --placeholder-color: #475569 !important;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// ─── Primary Buttons (DarkBlue/Cyan Border) ───────────────────────────────────
+ion-button.main-btn {
+  --background: #0e1828 !important; 
+  --color: #06b6d4 !important;
+  --border-color: #06b6d4 !important; 
+  --border-style: solid !important;
+  --border-width: 2px !important;
+  --border-radius: 16px !important;
+  --box-shadow: 0 0 15px rgba(6, 182, 212, 0.2) !important;
+  font-weight: 800 !important;
+  height: 58px !important;
+  margin-top: 15px !important;
+  letter-spacing: 1.5px !important;
+
+  &:hover {
+    --background: #06b6d4 !important;
+    --color: #ffffff !important;
+  }
+}
+
+ion-button.outline-btn {
+  --background: transparent !important;
+  --color: #06b6d4 !important;
+  --border-color: #06b6d4 !important;
+  --border-style: solid !important;
+  --border-width: 2px !important;
+  --border-radius: 16px !important;
+  font-weight: 800 !important;
+  height: 58px !important;
+  margin-top: 15px !important;
+}
+
+.result-box {
+  background: rgba(0, 0, 0, 0.4) !important;
+  padding: 24px !important;
+  border-radius: 18px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.actions ion-button {
+  --color: #ef4444 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+}

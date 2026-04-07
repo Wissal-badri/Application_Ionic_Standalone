@@ -12,16 +12,18 @@ ion-content {
 }
 
 ion-header ion-toolbar {
-  --background: #080e1a;
-  --border-color: #1e3d5c;
+  --background: #0f172a; // Midnight Blue
+  --border-color: #1e293b; // Subtle border
+  --border-width: 0 0 1px 0;
+  --color: #94a3b8; // Gray text
 }
 
 ion-title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #3a5270;
+  color: #94a3b8; // Gray color
 }
 
 .back-btn {
