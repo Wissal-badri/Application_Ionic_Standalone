@@ -1,0 +1,52 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Scanner QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-container">
+    <div class="hero-section">
+      <h1>Code Scanner</h1>
+      <p>Scannez rapidement vos codes QR</p>
+    </div>
+
+    <!-- Scanner Trigger Card -->
+    <div class="scan-card" (click)="startScan()" [class.scanning]="isScanning">
+      <div class="scan-visual">
+         <div class="scan-frame"></div>
+         <ion-icon [name]="isScanning ? 'stop-outline' : 'scan-outline'"></ion-icon>
+         <div class="scan-line" *ngIf="isScanning"></div>
+      </div>
+      
+      <div class="scan-info">
+        <h3>{{ isScanning ? 'Numérisation...' : 'Démarrer le Scan' }}</h3>
+        <p>{{ isScanning ? 'Alignez le code QR dans le cadre' : 'Appuyez pour ouvrir la caméra' }}</p>
+      </div>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-section" *ngIf="scanResult">
+      <span class="section-label">Résultat de la lecture</span>
+      
+      <div class="result-box">
+         <div class="result-header">
+            <ion-icon name="qr-code-outline"></ion-icon>
+            <span>Contenu détecté</span>
+         </div>
+         <div class="result-content">
+            {{ scanResult }}
+         </div>
+         <div class="result-footer">
+            <ion-button fill="clear" (click)="copyToClipboard()">
+               <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+               Copier le texte
+            </ion-button>
+         </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

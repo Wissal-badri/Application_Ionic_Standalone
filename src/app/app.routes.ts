@@ -52,5 +52,9 @@ export const routes: Routes = [
   {
     path: 'torch',
     loadComponent: () => import('./torch/torch.page').then( m => m.TorchPage)
+  },
+  {
+    path: 'scan-qr',
+    loadComponent: () => import('./scan-qr/scan-qr.page').then( m => m.ScanQrPage)
   }
 ];

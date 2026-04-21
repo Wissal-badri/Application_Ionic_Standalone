@@ -4,12 +4,13 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/ang
 import { Router } from '@angular/router';
 import { DataTransferService } from '../services/data-transfer.service';
 import { addIcons } from 'ionicons';
-import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline } from 'ionicons/icons';
+import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, CommonModule],
 })
 export class HomePage {
@@ -22,7 +23,7 @@ export class HomePage {
     private router: Router,
     private dataTransferService: DataTransferService
   ) {
-    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline });
+    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline });
   }
 
   goToCalculsPage() {
@@ -68,5 +69,9 @@ export class HomePage {
 
   goToTorchPage() {
     this.router.navigate(['/torch']);
+  }
+
+  goToScanQrPage() {
+    this.router.navigate(['/scan-qr']);
   }
 }

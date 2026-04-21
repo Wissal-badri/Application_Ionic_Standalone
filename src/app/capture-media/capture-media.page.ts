@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { 
-  IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, 
-  IonBackButton, IonIcon, IonCard, IonCardContent,
-  IonGrid, IonRow, IonCol
+  IonContent, 
+  IonHeader, 
+  IonTitle, 
+  IonToolbar, 
+  IonButtons, 
+  IonBackButton,
+  IonIcon
 } from '@ionic/angular/standalone';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { addIcons } from 'ionicons';
@@ -17,8 +21,7 @@ import { camera, videocam, image, playCircle } from 'ionicons/icons';
   standalone: true,
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, 
-    IonBackButton, IonIcon, IonCard, IonCardContent,
-    IonGrid, IonRow, IonCol, CommonModule, FormsModule
+    IonBackButton, IonIcon, CommonModule, FormsModule
   ]
 })
 export class CaptureMediaPage implements OnInit {
