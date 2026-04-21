@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Capture Média</ion-title>
   </ion-toolbar>
@@ -10,37 +10,37 @@
 <ion-content [fullscreen]="true">
   <div class="main-container">
     <div class="hero-section">
-      <h1>Studio de Capture</h1>
-      <p>Prenez des photos ou enregistrez des vidéos instantanément.</p>
+      <h1>Studio Photo & Vidéo</h1>
+      <p>Prenez des captures instantanées</p>
     </div>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-card (click)="takePhoto()" class="capture-card photo-card">
-            <ion-card-content>
-              <div class="icon-circle">
-                <ion-icon name="camera"></ion-icon>
-              </div>
-              <h3>PHOTO</h3>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col size="6">
-          <ion-card (click)="recordVideo()" class="capture-card video-card">
-            <ion-card-content>
-              <div class="icon-circle">
-                <ion-icon name="videocam"></ion-icon>
-              </div>
-              <h3>VIDÉO</h3>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <!-- Photo Card -->
+    <div class="capture-btn-card" (click)="takePhoto()">
+      <div class="card-left">
+        <ion-icon name="camera"></ion-icon>
+        <div class="info">
+          <span class="title">Appareil Photo</span>
+          <span class="desc">Capturer une image fixe</span>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
 
-    <div class="preview-container" *ngIf="photo">
-      <h2>Aperçu</h2>
+    <!-- Video Card -->
+    <div class="capture-btn-card" (click)="recordVideo()">
+      <div class="card-left">
+        <ion-icon name="videocam"></ion-icon>
+        <div class="info">
+          <span class="title">Enregistreur Vidéo</span>
+          <span class="desc">Démarrer une séquence vidéo</span>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <!-- Preview Section -->
+    <div class="preview-section" *ngIf="photo">
+      <span class="section-label">Aperçu Récent</span>
       <div class="glass-preview">
         <img [src]="photo" alt="Captured Photo" />
       </div>

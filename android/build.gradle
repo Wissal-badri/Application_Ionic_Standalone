@@ -38,5 +38,19 @@ subprojects {
                 }
             }
         }
+        // Force Java 17 for any project using toolchains
+        if (project.plugins.hasPlugin('java')) {
+            project.java {
+                toolchain {
+                    languageVersion = JavaLanguageVersion.of(17)
+                }
+            }
+        }
+        // Force Java 17 for Kotlin toolchain (common in Capacitor 8 plugins)
+        if (project.plugins.hasPlugin('kotlin-android') || project.plugins.hasPlugin('org.jetbrains.kotlin.android')) {
+            project.kotlin {
+                jvmToolchain(17)
+            }
+        }
     }
 }

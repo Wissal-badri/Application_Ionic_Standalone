@@ -1,38 +1,56 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Torche</ion-title>
+    <ion-title>Contrôle Torche</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="torch-container">
+    <div class="hero-section">
+      <h1>Lampe de Poche</h1>
+      <p>Contrôlez le flash de votre appareil</p>
+    </div>
+
+    <!-- Bulb Visual -->
     <div class="bulb-visual" [class.on]="isTorchOn">
-      <div class="glow" *ngIf="isTorchOn"></div>
+      <div class="glow"></div>
       <ion-icon name="bulb"></ion-icon>
     </div>
 
     <div class="status-badge" [class.on]="isTorchOn">
-      {{ isTorchOn ? 'TORCHE ALLUMÉE' : 'TORCHE ÉTEINTE' }}
+      {{ isTorchOn ? 'Flash Activé' : 'Flash Désactivé' }}
     </div>
 
-    <div class="controls">
-      <ion-button (click)="turnOn()" class="on-btn" [disabled]="isTorchOn">
-        <ion-icon slot="start" name="flash"></ion-icon>
-        ALLUMER
-      </ion-button>
-      
-      <ion-button (click)="turnOff()" class="off-btn" [disabled]="!isTorchOn">
-        <ion-icon slot="start" name="flash-off"></ion-icon>
-        ÉTEINDRE
-      </ion-button>
+    <!-- ON Card -->
+    <div class="torch-card" (click)="turnOn()" [class.disabled]="isTorchOn">
+      <div class="card-left">
+        <ion-icon name="flash"></ion-icon>
+        <div class="info">
+          <span class="title">Allumer</span>
+          <span class="desc">Activer la lampe torche</span>
+        </div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <!-- OFF Card -->
+    <div class="torch-card" (click)="turnOff()" [class.disabled]="!isTorchOn">
+      <div class="card-left">
+        <ion-icon name="flash-off"></ion-icon>
+        <div class="info">
+          <span class="title">Éteindre</span>
+          <span class="desc">Désactiver la lumière flash</span>
+        </div>
+      </div>
+      <span class="arrow">›</span>
     </div>
     
     <div class="main-toggle">
-       <ion-button (click)="toggle()" fill="outline" color="light" shape="block">
-          INVERSER L'ÉTAT
+       <ion-button (click)="toggle()" fill="clear">
+          Basculer l'état
        </ion-button>
     </div>
   </div>
