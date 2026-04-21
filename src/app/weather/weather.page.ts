@@ -6,7 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { 
   IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, 
   IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon, IonModal,
-  IonList, IonItem, IonLabel, IonNote
+  IonList, IonItem
 } from '@ionic/angular/standalone';
 import { DatabaseService } from '../services/database.service';
 import { addIcons } from 'ionicons';
@@ -16,7 +16,7 @@ import {
   thermometerOutline, trendingDownOutline, trendingUpOutline,
   downloadOutline, leafOutline, navigateOutline, waterOutline,
   cloudOutline, eyeOutline, locationOutline, sunnyOutline, cloudyNightOutline,
-  trashOutline
+  trashOutline, speedometerOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -27,7 +27,7 @@ import {
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, 
     IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon, IonModal,
-    IonList, IonItem, IonLabel, IonNote,
+    IonList, IonItem,
     CommonModule, FormsModule, HttpClientModule
   ]
 })
@@ -61,7 +61,8 @@ export class WeatherPage implements OnInit {
       'sunrise-outline': sunnyOutline,
       'sunset-outline': cloudyNightOutline,
       'time-outline': timeOutline,
-      'trash-outline': trashOutline
+      'trash-outline': trashOutline,
+      'speedometer-outline': speedometerOutline
     });
   }
 

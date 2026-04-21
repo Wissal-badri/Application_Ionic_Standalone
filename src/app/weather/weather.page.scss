@@ -1,15 +1,15 @@
 ion-content {
-  --background: #080e1a; // Deeper Midnight
+  --background: #080e1a;
   color: #f8fafc;
   --padding-top: 10px;
 }
 
-// ─── Header : Pro Dark / Cyan Border ──────────────────────────────────────────
+// ─── Header ──────────────────────────────────────────────────────────────────
 ion-header ion-toolbar {
-  --background: #0f172a; // Midnight Blue
-  --border-color: #1e293b; // Subtle border
+  --background: #0f172a;
+  --border-color: #1e293b;
   --border-width: 0 0 1px 0;
-  --color: #94a3b8; // Gray text
+  --color: #94a3b8;
 }
 
 ion-title {
@@ -17,22 +17,20 @@ ion-title {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #94a3b8; // Gray color
+  color: #94a3b8;
 }
 
 ion-buttons ion-back-button {
-  --color: #94a3b8; 
-  &:hover {
-    --color: #ffffff;
-  }
+  --color: #94a3b8;
+  &:hover { --color: #ffffff; }
 }
 
-// ─── Search Section ────────────────────────────────────────────────────────────
+// ─── Search Section ───────────────────────────────────────────────────────────
 .search-container {
-  padding: 40px 20px;
+  padding: 40px 20px 20px;
   max-width: 650px;
   margin: 0 auto;
-  
+
   ion-searchbar {
     --background: rgba(14, 24, 40, 0.8);
     --color: #ffffff;
@@ -51,7 +49,7 @@ ion-buttons ion-back-button {
   }
 
   ion-button {
-    --background: #0e1828; 
+    --background: #0e1828;
     --color: #06b6d4;
     --border-color: #06b6d4;
     --border-style: solid;
@@ -73,9 +71,9 @@ ion-buttons ion-back-button {
   }
 }
 
-// ─── Weather Data Visualization ──────────────────────────────────────────────
+// ─── Weather Results ──────────────────────────────────────────────────────────
 .weather-results {
-  padding: 0 20px 80px;
+  padding: 0 20px 20px;
   max-width: 1200px;
   margin: 0 auto;
   animation: slideInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -83,81 +81,84 @@ ion-buttons ion-back-button {
 
 @keyframes slideInUp {
   from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-// Hero Info - Large Glass Block
+// Hero Card
 .ui-card.hero-card {
   background: linear-gradient(145deg, rgba(14, 24, 40, 0.8), rgba(8, 14, 26, 0.6));
-  border: 2px solid #06b6d4; // Strong Cyan accent
+  border: 2px solid #06b6d4;
   border-radius: 30px;
   padding: 40px;
   text-align: center;
   margin-bottom: 40px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(6,182,212,0.1);
 
   .hero-header {
     h2 {
-      font-size: 3rem;
-      font-weight: 200;
-      letter-spacing: -1px;
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0;
       margin: 0;
       color: #ffffff;
+      word-break: break-word;
     }
     .country-flag {
-      height: 30px;
+      height: 28px;
       border-radius: 6px;
-      margin-top: 15px;
+      margin-top: 12px;
       filter: saturate(1.2);
     }
   }
 
   .hero-body {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
 
     .weather-icon {
-      width: 160px;
-      height: 160px;
+      width: 110px;
+      height: 110px;
       filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.4));
       animation: pulsate 4s ease-in-out infinite;
     }
-
     .temp-box {
+      text-align: center;
       .temp {
-        font-size: 8rem;
+        font-size: 5rem;
         font-weight: 100;
-        letter-spacing: -5px;
-        color: #ffffff;
+        letter-spacing: -3px;
         background: linear-gradient(to bottom, #ffffff, #06b6d4);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        display: block;
       }
       .desc {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #06b6d4;
         text-transform: uppercase;
-        letter-spacing: 5px;
-        margin-top: -10px;
+        letter-spacing: 3px;
+        margin-top: 4px;
+        display: block;
       }
     }
   }
 }
 
 @keyframes pulsate {
-  0% { transform: scale(1); filter: brightness(1); }
-  50% { transform: scale(1.05); filter: brightness(1.2) drop-shadow(0 0 25px rgba(6, 182, 212, 0.6)); }
+  0%   { transform: scale(1); filter: brightness(1); }
+  50%  { transform: scale(1.05); filter: brightness(1.2) drop-shadow(0 0 25px rgba(6,182,212,0.6)); }
   100% { transform: scale(1); filter: brightness(1); }
 }
 
-// Stats Cards - Mini Data Cubes
+// Stats Cards
 .stat-card {
   background: rgba(14, 24, 40, 0.5);
   border: 1px solid rgba(6, 182, 212, 0.1);
@@ -172,7 +173,7 @@ ion-buttons ion-back-button {
     border-color: #06b6d4;
     transform: translateY(-10px) scale(1.02);
     background: rgba(14, 24, 40, 0.8);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(6, 182, 212, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 15px rgba(6,182,212,0.2);
   }
 
   .main-stat-icon {
@@ -203,14 +204,13 @@ ion-buttons ion-back-button {
     justify-content: space-between;
     align-items: center;
     margin: 14px 0;
-    
+
     .label-with-icon {
       font-size: 0.85rem;
       color: #475569;
       display: flex;
       align-items: center;
       gap: 10px;
-      
       ion-icon { font-size: 1.1rem; }
     }
 
@@ -221,4 +221,174 @@ ion-buttons ion-back-button {
       font-size: 1.1rem;
     }
   }
+}
+
+// ─── Bouton Historique (bas de page) ─────────────────────────────────────────
+.history-btn-container {
+  padding: 16px 20px 32px;
+  max-width: 650px;
+  margin: 0 auto;
+
+  .history-btn {
+    --background: linear-gradient(135deg, #0e1828, #0f2a3f);
+    --color: #06b6d4;
+    --border-color: #06b6d4;
+    --border-style: solid;
+    --border-width: 2px;
+    --border-radius: 16px;
+    --box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    height: 56px;
+    font-size: 0.9rem;
+
+    ion-icon {
+      font-size: 1.3rem;
+      margin-right: 8px;
+    }
+  }
+}
+
+// ─── Modal Style ──────────────────────────────────────────────────────────────
+.modal-toolbar {
+  --background: #0f172a;
+  --border-color: #1e293b;
+  --border-width: 0 0 1px 0;
+}
+
+.modal-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #06b6d4;
+}
+
+.modal-close-btn {
+  --color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.modal-content {
+  --background: #080e1a;
+}
+
+.history-list {
+  background: transparent;
+  padding: 12px;
+
+  .history-item {
+    --background: transparent;
+    --border-color: transparent;
+    margin-bottom: 12px;
+
+    .history-item-inner {
+      width: 100%;
+      background: rgba(14, 24, 40, 0.7);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      border-radius: 16px;
+      padding: 16px 18px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #06b6d4;
+        background: rgba(14, 24, 40, 0.95);
+      }
+
+      .history-city {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 10px;
+
+        ion-icon {
+          color: #06b6d4;
+          font-size: 1.1rem;
+        }
+      }
+
+      .history-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+
+        .stat-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          background: rgba(6, 182, 212, 0.08);
+          border: 1px solid rgba(6, 182, 212, 0.2);
+          border-radius: 8px;
+          padding: 4px 10px;
+          font-size: 0.78rem;
+          color: #cbd5e1;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+
+          ion-icon {
+            font-size: 0.9rem;
+            color: #94a3b8;
+          }
+
+          &.temp-chip {
+            color: #06b6d4;
+            border-color: rgba(6, 182, 212, 0.4);
+            ion-icon { color: #06b6d4; }
+          }
+        }
+      }
+
+      .history-date {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        color: #475569;
+        letter-spacing: 0.5px;
+
+        ion-icon { font-size: 0.85rem; }
+      }
+    }
+  }
+}
+
+.empty-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #475569;
+
+  ion-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+
+  p {
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+}
+
+// Error message
+.error-msg {
+  margin: 0 20px 16px;
+  padding: 14px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  color: #f87171;
+  font-size: 0.9rem;
+  text-align: center;
 }

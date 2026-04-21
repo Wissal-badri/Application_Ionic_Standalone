@@ -4,11 +4,6 @@
       <ion-back-button defaultHref="/home" color="light"></ion-back-button>
     </ion-buttons>
     <ion-title>Météo & Climat</ion-title>
-    <ion-buttons slot="end">
-      <ion-button color="light" (click)="openHistory()">
-        <ion-icon slot="icon-only" name="time-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -145,32 +140,57 @@
 
   </div>
 
+  <!-- Bouton Consulter l'historique (toujours visible en bas) -->
+  <div class="history-btn-container">
+    <ion-button expand="block" shape="round" class="history-btn" (click)="openHistory()">
+      <ion-icon slot="start" name="time-outline"></ion-icon>
+      CONSULTER L'HISTORIQUE
+    </ion-button>
+  </div>
+
   <!-- History Modal -->
   <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeHistory()">
     <ng-template>
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>Historique des recherches</ion-title>
+      <ion-header class="ion-no-border">
+        <ion-toolbar class="modal-toolbar">
+          <ion-title class="modal-title">Historique des recherches</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="closeHistory()">Fermer</ion-button>
+            <ion-button class="modal-close-btn" (click)="closeHistory()">Fermer</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-item *ngFor="let item of history">
-            <ion-label>
-              <h2>{{ item.city }}, {{ item.country }}</h2>
-              <p>{{ item.temp }}°C - {{ item.humidity }}% Humidité</p>
-              <p>Pression: {{ item.pressure }} hPa</p>
-            </ion-label>
-            <ion-note slot="end">{{ item.timestamp | date:'short' }}</ion-note>
+      <ion-content class="modal-content">
+        <ion-list class="history-list">
+          <ion-item *ngFor="let item of history" class="history-item">
+            <div class="history-item-inner">
+              <div class="history-city">
+                <ion-icon name="location-outline"></ion-icon>
+                <span>{{ item.city }}, {{ item.country }}</span>
+              </div>
+              <div class="history-stats">
+                <span class="stat-chip temp-chip">
+                  <ion-icon name="thermometer-outline"></ion-icon>
+                  {{ item.temp | number:'1.0-1' }}°C
+                </span>
+                <span class="stat-chip">
+                  <ion-icon name="water-outline"></ion-icon>
+                  {{ item.humidity }}%
+                </span>
+                <span class="stat-chip">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+                  {{ item.pressure }} hPa
+                </span>
+              </div>
+              <div class="history-date">
+                <ion-icon name="time-outline"></ion-icon>
+                {{ item.timestamp | date:'dd/MM/yyyy à HH:mm' }}
+              </div>
+            </div>
           </ion-item>
-          <ion-item *ngIf="history.length === 0">
-            <ion-label class="ion-text-center">
-              <p>Aucun historique disponible.</p>
-            </ion-label>
-          </ion-item>
+          <div *ngIf="history.length === 0" class="empty-history">
+            <ion-icon name="cloud-outline"></ion-icon>
+            <p>Aucune recherche enregistrée.</p>
+          </div>
         </ion-list>
       </ion-content>
     </ng-template>
