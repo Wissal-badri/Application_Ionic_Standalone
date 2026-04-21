@@ -5,15 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { 
   IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, 
-  IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon 
+  IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon, IonModal,
+  IonList, IonItem, IonLabel, IonNote
 } from '@ionic/angular/standalone';
+import { DatabaseService } from '../services/database.service';
 import { addIcons } from 'ionicons';
 import { 
   thermometer, speedometer, water, compass, partlySunny, 
-  leaf, cloud, eye, location, navigate,
+  leaf, cloud, eye, location, navigate, timeOutline,
   thermometerOutline, trendingDownOutline, trendingUpOutline,
   downloadOutline, leafOutline, navigateOutline, waterOutline,
-  cloudOutline, eyeOutline, locationOutline, sunnyOutline, cloudyNightOutline
+  cloudOutline, eyeOutline, locationOutline, sunnyOutline, cloudyNightOutline,
+  trashOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -23,7 +26,8 @@ import {
   standalone: true,
   imports: [
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, 
-    IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon,
+    IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonIcon, IonModal,
+    IonList, IonItem, IonLabel, IonNote,
     CommonModule, FormsModule, HttpClientModule
   ]
 })
@@ -33,8 +37,13 @@ export class WeatherPage implements OnInit {
   public apiKey: string = environment.weatherApiKey;
   public weatherData: any = null;
   public errorMsg: string = '';
+  public history: any[] = [];
+  public isModalOpen = false;
 
-  constructor(private http: HttpClient) { 
+  constructor(
+    private http: HttpClient,
+    private dbService: DatabaseService
+  ) { 
     // Icons setup for the UI
     addIcons({ 
       thermometer, speedometer, water, compass, partlySunny, 
@@ -50,7 +59,9 @@ export class WeatherPage implements OnInit {
       'eye-outline': eyeOutline,
       'location-outline': locationOutline,
       'sunrise-outline': sunnyOutline,
-      'sunset-outline': cloudyNightOutline
+      'sunset-outline': cloudyNightOutline,
+      'time-outline': timeOutline,
+      'trash-outline': trashOutline
     });
   }
 
@@ -72,6 +83,7 @@ export class WeatherPage implements OnInit {
           }
         }
         this.weatherData = data;
+        this.saveToHistory(data);
         console.log(data); // Log pour analyse
       },
       error: (err) => {
@@ -93,5 +105,28 @@ export class WeatherPage implements OnInit {
     return date.toLocaleTimeString('fr-FR', {
       hour: '2-digit', minute: '2-digit'
     });
+  }
+
+  async saveToHistory(data: any) {
+    try {
+      await this.dbService.addWeather(
+        data.name,
+        data.sys.country,
+        data.main.temp,
+        data.main.pressure,
+        data.main.humidity
+      );
+    } catch (err) {
+      console.error('Error saving to history', err);
+    }
+  }
+
+  async openHistory() {
+    this.history = await this.dbService.getWeatherHistory();
+    this.isModalOpen = true;
+  }
+
+  closeHistory() {
+    this.isModalOpen = false;
   }
 }
