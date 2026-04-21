@@ -44,5 +44,13 @@ export const routes: Routes = [
   {
     path: 'sms-phone',
     loadComponent: () => import('./sms-phone/sms-phone.page').then( m => m.SmsPhonePage)
+  },
+  {
+    path: 'capture-media',
+    loadComponent: () => import('./capture-media/capture-media.page').then( m => m.CaptureMediaPage)
+  },
+  {
+    path: 'torch',
+    loadComponent: () => import('./torch/torch.page').then( m => m.TorchPage)
   }
 ];

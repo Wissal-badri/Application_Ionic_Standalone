@@ -4,7 +4,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/ang
 import { Router } from '@angular/router';
 import { DataTransferService } from '../services/data-transfer.service';
 import { addIcons } from 'ionicons';
-import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline } from 'ionicons/icons';
+import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomePage {
     private router: Router,
     private dataTransferService: DataTransferService
   ) {
-    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline });
+    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline });
   }
 
   goToCalculsPage() {
@@ -60,5 +60,13 @@ export class HomePage {
 
   goToSMSPhonePage() {
     this.router.navigate(['/sms-phone']);
+  }
+
+  goToCaptureMediaPage() {
+    this.router.navigate(['/capture-media']);
+  }
+
+  goToTorchPage() {
+    this.router.navigate(['/torch']);
   }
 }

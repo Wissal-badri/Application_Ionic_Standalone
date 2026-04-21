@@ -1,0 +1,113 @@
+ion-content {
+  --background: #020617;
+  color: white;
+}
+
+.torch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.bulb-visual {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 4px solid #334155;
+
+  ion-icon {
+    font-size: 5rem;
+    color: #475569;
+    z-index: 2;
+    transition: all 0.5s ease;
+  }
+
+  .glow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    background: #fbbf24;
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  &.on {
+    background: #fbbf24;
+    border-color: #fcd34d;
+    box-shadow: 0 0 80px rgba(251, 191, 36, 0.4);
+    
+    ion-icon {
+      color: #78350f;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #1e293b;
+  color: #94a3b8;
+  margin-bottom: 60px;
+  transition: all 0.3s ease;
+
+  &.on {
+    background: #fbbf24;
+    color: #451a03;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+
+  ion-button {
+    flex: 1;
+    height: 60px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    --border-radius: 16px;
+  }
+
+  .on-btn {
+    --background: #fbbf24;
+    --color: #451a03;
+  }
+
+  .off-btn {
+    --background: #1e293b;
+    --color: white;
+  }
+}
+
+.main-toggle {
+    width: 100%;
+    max-width: 400px;
+    ion-button {
+        --border-radius: 16px;
+        --border-width: 2px;
+        height: 50px;
+    }
+}

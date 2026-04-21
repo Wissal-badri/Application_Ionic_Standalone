@@ -1,0 +1,39 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Torche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="torch-container">
+    <div class="bulb-visual" [class.on]="isTorchOn">
+      <div class="glow" *ngIf="isTorchOn"></div>
+      <ion-icon name="bulb"></ion-icon>
+    </div>
+
+    <div class="status-badge" [class.on]="isTorchOn">
+      {{ isTorchOn ? 'TORCHE ALLUMÉE' : 'TORCHE ÉTEINTE' }}
+    </div>
+
+    <div class="controls">
+      <ion-button (click)="turnOn()" class="on-btn" [disabled]="isTorchOn">
+        <ion-icon slot="start" name="flash"></ion-icon>
+        ALLUMER
+      </ion-button>
+      
+      <ion-button (click)="turnOff()" class="off-btn" [disabled]="!isTorchOn">
+        <ion-icon slot="start" name="flash-off"></ion-icon>
+        ÉTEINDRE
+      </ion-button>
+    </div>
+    
+    <div class="main-toggle">
+       <ion-button (click)="toggle()" fill="outline" color="light" shape="block">
+          INVERSER L'ÉTAT
+       </ion-button>
+    </div>
+  </div>
+</ion-content>
