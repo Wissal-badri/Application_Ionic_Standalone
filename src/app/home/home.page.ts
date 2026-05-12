@@ -4,7 +4,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon } from '@ionic/ang
 import { Router } from '@angular/router';
 import { DataTransferService } from '../services/data-transfer.service';
 import { addIcons } from 'ionicons';
-import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline } from 'ionicons/icons';
+import { analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline, micOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomePage {
     private router: Router,
     private dataTransferService: DataTransferService
   ) {
-    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline });
+    addIcons({ analyticsOutline, calculatorOutline, gameControllerOutline, swapHorizontalOutline, brushOutline, constructOutline, partlySunnyOutline, mapOutline, clipboardOutline, chatbubbleEllipsesOutline, cameraOutline, flashOutline, qrCodeOutline, micOutline });
   }
 
   goToCalculsPage() {
@@ -72,6 +72,10 @@ export class HomePage {
   }
 
   goToScanQrPage() {
-    this.router.navigate(['/scan-qr']);
+    this.router.navigate(['/qr-code']);
+  }
+
+  goToAudioRecorderPage() {
+    this.router.navigate(['/audio-recorder']);
   }
 }

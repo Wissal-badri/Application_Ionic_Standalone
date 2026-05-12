@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Enregistreur Pro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleList()">
+        <ion-icon slot="icon-only" name="list-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    
+    <div class="recorder-section" *ngIf="!showList">
+      <div class="status-card">
+        <div class="recording-indicator" [class.active]="recording"></div>
+        <ion-text color="light">
+          <h2>{{ recording ? 'Enregistrement en cours...' : 'Prêt à enregistrer' }}</h2>
+        </ion-text>
+        <p class="timer" *ngIf="recording">Audio HD actif</p>
+      </div>
+
+      <div class="controls-main">
+        <ion-fab-button class="record-btn" [color]="recording ? 'danger' : 'primary'" (click)="recording ? stopRecording() : startRecording()">
+          <ion-icon [name]="recording ? 'stop-outline' : 'mic-outline'"></ion-icon>
+        </ion-fab-button>
+        <p class="hint">{{ recording ? 'Appuyez pour arrêter' : 'Appuyez pour commencer' }}</p>
+      </div>
+    </div>
+
+    <div class="list-section" *ngIf="showList">
+      <div class="list-header">
+        <h3>Mes Enregistrements</h3>
+        <ion-badge color="secondary">{{ recordedFiles.length }}</ion-badge>
+      </div>
+
+      <div class="empty-state" *ngIf="recordedFiles.length === 0">
+        <ion-icon name="mic-outline"></ion-icon>
+        <p>Aucun audio trouvé</p>
+      </div>
+
+      <ion-list lines="none">
+        <ion-item *ngFor="let file of recordedFiles" class="audio-item">
+          <div class="item-content">
+            <div class="item-info" (click)="playFile(file)">
+              <div class="play-status">
+                <ion-icon [name]="currentPlayingFile === file.name && isPlaying ? 'pause-outline' : 'play-outline'" 
+                          [color]="currentPlayingFile === file.name ? 'primary' : 'medium'"></ion-icon>
+              </div>
+              <div class="text-info">
+                <ion-label>
+                  <h2>Audio {{ file.timestamp | date:'short' }}</h2>
+                  <p><ion-icon name="time-outline"></ion-icon> {{ file.date }} à {{ file.time }}</p>
+                </ion-label>
+              </div>
+            </div>
+
+            <div class="player-controls" *ngIf="currentPlayingFile === file.name">
+              <ion-buttons>
+                <ion-button (click)="rewind()">
+                  <ion-icon slot="icon-only" name="play-back-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="forward()">
+                  <ion-icon slot="icon-only" name="play-forward-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="toggleMute()">
+                  <ion-icon slot="icon-only" [name]="isMuted ? 'volume-mute-outline' : 'volume-medium-outline'"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="deleteFile(file)">
+                  <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </div>
+</ion-content>

@@ -56,5 +56,13 @@ export const routes: Routes = [
   {
     path: 'scan-qr',
     loadComponent: () => import('./scan-qr/scan-qr.page').then( m => m.ScanQrPage)
+  },
+  {
+    path: 'audio-recorder',
+    loadComponent: () => import('./audio-recorder/audio-recorder.page').then( m => m.AudioRecorderPage)
+  },
+  {
+    path: 'qr-code',
+    loadComponent: () => import('./qr-code/qr-code.page').then( m => m.QrCodePage)
   }
 ];

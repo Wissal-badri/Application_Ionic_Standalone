@@ -25,12 +25,12 @@ ion-buttons ion-back-button {
 
 // ─── Main Container ────────────────────────────────────────────────────────────
 .clipboard-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 30px !important;
-  max-width: 650px !important;
-  margin: 40px auto !important;
-  padding: 0 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 0 24px;
   animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

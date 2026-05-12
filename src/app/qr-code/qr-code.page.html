@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Scanner QR Pro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    
+    <div class="scan-section">
+      <div class="scan-frame" [class.scanning]="isScanning">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <div class="scan-line" *ngIf="isScanning"></div>
+        <ion-icon name="qr-code-outline" class="placeholder-icon" *ngIf="!isScanning"></ion-icon>
+      </div>
+
+      <div class="result-card" *ngIf="scanResult">
+        <div class="result-header">
+          <ion-icon name="clipboard-outline"></ion-icon>
+          <span>Résultat du scan</span>
+        </div>
+        <div class="result-content">
+          <ion-text color="light">
+            <p>{{ scanResult }}</p>
+          </ion-text>
+        </div>
+        <ion-button expand="block" fill="clear" (click)="copyToClipboard()">
+          COPIER LE TEXTE
+        </ion-button>
+      </div>
+
+      <div class="controls">
+        <ion-button expand="block" class="scan-btn" (click)="startScan()" [disabled]="isScanning">
+          <ion-icon slot="start" name="scan-outline"></ion-icon>
+          {{ isScanning ? 'SCAN EN COURS...' : 'DÉMARRER LE SCAN' }}
+        </ion-button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
