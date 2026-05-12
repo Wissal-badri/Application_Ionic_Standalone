@@ -1,193 +1,163 @@
 ion-content {
-  --background: radial-gradient(circle at top right, #0f1c35 0%, #080e1a 100%);
-}
-
-ion-header ion-toolbar {
-  --background: #0f172a;
-  --border-color: #1e293b;
-  --border-width: 0 0 1px 0;
-  --color: #94a3b8;
-}
-
-ion-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #94a3b8;
+  --background: #080e1a;
 }
 
 .torch-container {
-  padding: 50px 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  align-items: center;
+  gap: 14px;
   min-height: 100%;
 }
 
 .hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  width: 100%;
+  max-width: 420px;
   text-align: center;
   margin-bottom: 10px;
   
   h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: #e8edf5;
     margin: 0;
   }
   
   p {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #06b6d4;
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: #2e4460;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    margin: 0;
+    letter-spacing: 2px;
+    margin: 4px 0 0;
   }
 }
 
 .bulb-visual {
   position: relative;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(14, 24, 40, 0.4);
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  background: #0e1828;
+  border: 1px solid #1e3d5c;
+  border-top: 2px solid #06b6d4; // Cyan accent
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px auto;
-  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border: 1px solid rgba(30, 61, 92, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 
   ion-icon {
-    font-size: 4.5rem;
+    font-size: 4rem;
     color: #1e3348;
     z-index: 2;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
   }
 
   .glow {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 50%;
+    border-radius: 18px;
     background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
     opacity: 0;
-    transition: all 0.6s ease;
+    transition: all 0.4s ease;
   }
 
   &.on {
     border-color: #06b6d4;
-    background: rgba(6, 182, 212, 0.05);
-    box-shadow: 0 0 60px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.1);
-    transform: scale(1.05);
+    background: #0f1f33;
 
     ion-icon {
       color: #06b6d4;
-      filter: drop-shadow(0 0 15px #06b6d4);
+      filter: drop-shadow(0 0 10px #06b6d4);
     }
 
     .glow {
-      opacity: 0.4;
+      opacity: 0.2;
       animation: pulseGlow 2.5s infinite ease-in-out;
     }
   }
 }
 
 @keyframes pulseGlow {
-  0% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.4); opacity: 0.5; }
-  100% { transform: scale(1); opacity: 0.3; }
+  0% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.1); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.1; }
 }
 
 .status-badge {
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background: rgba(14, 24, 40, 0.6);
-  color: #475569;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 10px;
+  background: #0e1828;
+  color: #2e4460;
   margin: 0 auto;
-  border: 1px solid rgba(30, 61, 92, 0.3);
+  border: 1px solid #1e3d5c;
   text-transform: uppercase;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 
   &.on {
-    background: rgba(6, 182, 212, 0.1);
     border-color: #06b6d4;
     color: #06b6d4;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
   }
 }
 
 .torch-card {
   width: 100%;
-  background: rgba(14, 24, 40, 0.6);
-  border: 1px solid rgba(30, 61, 92, 0.3);
-  border-left: 3px solid #06b6d4;
-  border-radius: 18px;
-  padding: 20px 24px;
+  max-width: 420px;
+  background: #0e1828;
+  border: 1px solid #1e3d5c;
+  border-radius: 16px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &.disabled {
-    opacity: 0.4;
-    filter: grayscale(1);
-    cursor: default;
-    pointer-events: none;
-  }
+  transition: all 0.15s ease;
 
   &:active {
-    transform: translateY(2px) scale(0.98);
-    background: rgba(15, 31, 51, 0.8);
+    transform: scale(0.98);
+    background: #0f1f33;
+    border-color: #06b6d4;
   }
 
   .card-left {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
   }
 
   ion-icon {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #06b6d4;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
   }
 
   .info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     
     .title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #e8edf5;
     }
     .desc {
-      font-size: 0.7rem;
-      color: #475569;
-      letter-spacing: 0.5px;
+      font-size: 0.6rem;
+      color: #2e4460;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
 
   .arrow {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #334155;
+    font-size: 1.2rem;
+    color: #1e3348;
   }
 }
 
@@ -198,14 +168,11 @@ ion-title {
     margin-top: 10px;
 
     ion-button {
-      --color: #475569;
-      --padding-start: 20px;
-      --padding-end: 20px;
-      font-size: 0.75rem;
+      --color: #2e4460;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      --transition: all 0.3s ease;
 
       &:hover {
           --color: #06b6d4;
